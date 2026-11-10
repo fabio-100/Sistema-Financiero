@@ -1,7 +1,8 @@
 import customtkinter as ctk
 from ventanas.historial import abrir_historial
 from ventanas.reportes import abrir_reportes
-
+from ventanas.estadisticas import abrir_estadisticas
+from ventanas.configuracion import abrir_configuracion
 from logica.gestor_operaciones import GestorOperaciones
 from ventanas.operaciones import abrir_dialogo
 from componentes.atomos import crear_etiqueta
@@ -38,7 +39,9 @@ def crear_inicio(ventana, nombre):
     contenido,
     nombre,
     comando_historial=lambda: abrir_historial(ventana, gestor),
-    comando_reportes=lambda: abrir_reportes(ventana, gestor)
+    comando_reportes=lambda: abrir_reportes(ventana, gestor),
+    comando_estadisticas=lambda: abrir_estadisticas(ventana, gestor),
+    comando_configuracion=lambda: abrir_configuracion(ventana, nombre)
 )
     menu.grid(row=0, column=0, sticky="nsew")
 
@@ -119,7 +122,13 @@ def crear_inicio(ventana, nombre):
     categorias = crear_panel_categorias(derecho)
     categorias.grid(row=0, column=0, sticky="nsew", pady=(0, 15))
 
-    reportes = crear_panel_reportes(derecho)
+    categorias = crear_panel_categorias(derecho)
+    categorias.grid(row=0, column=0, sticky="nsew", pady=(0, 15))
+
+    reportes = crear_panel_reportes(
+        derecho,
+        comando_estadisticas=lambda: abrir_estadisticas(ventana, gestor)
+    )
     reportes.grid(row=1, column=0, sticky="nsew")
 
     # Actualiza el historial de operaciones

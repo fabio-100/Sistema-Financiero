@@ -8,7 +8,7 @@ from componentes.moleculas import crear_tarjeta_categoria
 
 # Crea el menú lateral
 
-def crear_menu_lateral(padre, nombre, comando_historial=None, comando_reportes=None):
+def crear_menu_lateral(padre, nombre, comando_historial=None, comando_reportes=None, comando_estadisticas=None,  comando_configuracion=None):
     menu = ctk.CTkFrame(
         padre,
         width=260,
@@ -33,8 +33,8 @@ def crear_menu_lateral(padre, nombre, comando_historial=None, comando_reportes=N
         ("⌂   Inicio", None),
         ("▤   Historial", comando_historial),
         ("▥   Reportes", comando_reportes),
-        ("◷   Estadísticas", None),
-        ("⚙   Configuración", None)
+        ("◷   Estadísticas", comando_estadisticas),
+        ("⚙   Configuración", comando_configuracion)
     ]
 
     for opcion, comando in opciones:
@@ -113,8 +113,9 @@ def actualizar_panel_categorias(panel, gastos):
         tarjeta.pack(fill="x", padx=18, pady=2)
 
 
+
 # Crea el panel de reportes rápidos
-def crear_panel_reportes(padre):
+def crear_panel_reportes(padre, comando_estadisticas=None):
     panel = ctk.CTkFrame(
         padre,
         fg_color="#FFFFFF",
@@ -146,7 +147,8 @@ def crear_panel_reportes(padre):
         height=54,
         corner_radius=10,
         anchor="w",
-        font=("Arial", 12, "bold")
+        font=("Arial", 12, "bold"),
+        command=comando_estadisticas
     ).pack(fill="both", expand=True, padx=12, pady=4)
 
     return panel
