@@ -1,4 +1,6 @@
 import customtkinter as ctk
+from ventanas.historial import abrir_historial
+from ventanas.reportes import abrir_reportes
 
 from logica.gestor_operaciones import GestorOperaciones
 from ventanas.operaciones import abrir_dialogo
@@ -32,7 +34,12 @@ def crear_inicio(ventana, nombre):
     contenido.grid_columnconfigure(0, minsize=260)
 
     # Menú lateral
-    menu = crear_menu_lateral(contenido, nombre)
+    menu = crear_menu_lateral(
+    contenido,
+    nombre,
+    comando_historial=lambda: abrir_historial(ventana, gestor),
+    comando_reportes=lambda: abrir_reportes(ventana, gestor)
+)
     menu.grid(row=0, column=0, sticky="nsew")
 
     # Panel central

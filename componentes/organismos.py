@@ -7,7 +7,8 @@ from componentes.moleculas import crear_tarjeta_categoria
 
 
 # Crea el menú lateral
-def crear_menu_lateral(padre, nombre):
+
+def crear_menu_lateral(padre, nombre, comando_historial=None, comando_reportes=None):
     menu = ctk.CTkFrame(
         padre,
         width=260,
@@ -28,13 +29,19 @@ def crear_menu_lateral(padre, nombre):
         menu, nombre, tamaño=17, negrita=True
     ).pack(pady=(0, 25))
 
-    opciones = ["⌂   Inicio", "▤   Historial", "▥   Reportes",
-                "◷   Estadísticas", "⚙   Configuración"]
+    opciones = [
+        ("⌂   Inicio", None),
+        ("▤   Historial", comando_historial),
+        ("▥   Reportes", comando_reportes),
+        ("◷   Estadísticas", None),
+        ("⚙   Configuración", None)
+    ]
 
-    for opcion in opciones:
+    for opcion, comando in opciones:
         boton = ctk.CTkButton(
             menu,
             text=opcion,
+            command=comando,
             fg_color="#D5E5FC" if "Inicio" in opcion else "transparent",
             text_color="#243B64",
             hover_color="#D5E5FC",
@@ -46,6 +53,7 @@ def crear_menu_lateral(padre, nombre):
         boton.pack(fill="x", padx=15, pady=5)
 
     return menu
+
 
 
 # Crea el panel de gastos por categoría
