@@ -21,7 +21,7 @@ def abrir_dialogo(ventana, tipo, gestor, actualizar_pantalla):
 
     dialogo.geometry(f"{ancho}x{alto}")
     dialogo.resizable(False, False)
-    dialogo.configure(fg_color="#F4F7FC")
+    dialogo.configure(fg_color=("#F4F7FC","#101014"))
     dialogo.transient(ventana)
 
     dialogo.update_idletasks()
@@ -62,8 +62,8 @@ def abrir_dialogo(ventana, tipo, gestor, actualizar_pantalla):
                 "Seleccionar categoría",
                 "Comida",
                 "Servicios",
-                "Transporte",
                 "Entretenimiento",
+                "Transporte",
                 "Salud",
                 "Educación",
                 "Otros"

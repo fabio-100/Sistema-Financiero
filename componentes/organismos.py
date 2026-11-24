@@ -12,7 +12,7 @@ def crear_menu_lateral(padre, nombre, comando_historial=None, comando_reportes=N
     menu = ctk.CTkFrame(
         padre,
         width=260,
-        fg_color="#EAF1FA",
+        fg_color=("#EAF1FA","#101014"),
         corner_radius=0
     )
     menu.grid_propagate(False)
@@ -42,9 +42,9 @@ def crear_menu_lateral(padre, nombre, comando_historial=None, comando_reportes=N
             menu,
             text=opcion,
             command=comando,
-            fg_color="#D5E5FC" if "Inicio" in opcion else "transparent",
-            text_color="#243B64",
-            hover_color="#D5E5FC",
+            fg_color=("#DFD685","#1F1F24") if "Inicio" in opcion else "transparent",
+            text_color=("#243B64","#67678F"),
+            hover_color=("#DFD685","#1F1F24"),
             anchor="w",
             height=45,
             corner_radius=9,
@@ -60,10 +60,10 @@ def crear_menu_lateral(padre, nombre, comando_historial=None, comando_reportes=N
 def crear_panel_categorias(padre):
     panel = ctk.CTkFrame(
         padre,
-        fg_color="#FFFFFF",
+        fg_color=("#FFFFFF","#101014"),
         corner_radius=12,
         border_width=1,
-        border_color="#DCE5F2"
+        border_color=("#DCE5F2","#101014"),
     )
 
     crear_etiqueta(
@@ -74,7 +74,7 @@ def crear_panel_categorias(padre):
         panel, fg_color="transparent"
     )
     panel.contenedor_categorias.pack(
-        fill="both", expand=True, padx=0, pady=(0, 4)
+        fill="both", expand=True, padx=6, pady=(0, 7)
     )
 
     actualizar_panel_categorias(panel, {})
@@ -94,7 +94,7 @@ def actualizar_panel_categorias(panel, gastos):
         "Transporte": "#69B875",
         "Salud": "#E477A5",
         "Educación": "#D6A43B",
-        "Otros": "#9AA5B1"
+        "Otros": "#0FE0D6"
     }
 
     total = sum(gastos.values())
@@ -110,7 +110,7 @@ def actualizar_panel_categorias(panel, gastos):
             porcentaje,
             color
         )
-        tarjeta.pack(fill="x", padx=18, pady=2)
+        tarjeta.pack(fill="both", expand=True, padx=10, pady=4)
 
 
 
@@ -118,26 +118,26 @@ def actualizar_panel_categorias(panel, gastos):
 def crear_panel_reportes(padre, comando_estadisticas=None):
     panel = ctk.CTkFrame(
         padre,
-        fg_color="#FFFFFF",
+        fg_color=("#FFFFFF","#101014"),
         corner_radius=12,
         border_width=1,
-        border_color="#DCE5F2"
+        border_color=("#DCE5F2","#101014"),
     )
 
     crear_etiqueta(
         panel, "Reportes rápidos", tamaño=17, negrita=True
     ).pack(anchor="w", padx=16, pady=(9, 4))
 
-    ctk.CTkButton(
-        panel,
-        text="▤   Generar comprobante\n      Ver detalle de una operación",
-        fg_color="#5689E8",
-        hover_color="#3E70CE",
-        height=54,
-        corner_radius=10,
-        anchor="w",
-        font=("Arial", 12, "bold")
-    ).pack(fill="both", expand=True, padx=12, pady=4)
+    # ctk.CTkButton(
+    #     panel,
+    #     text="▤   Generar comprobante\n      Ver detalle de una operación",
+    #     fg_color="#5689E8",
+    #     hover_color="#3E70CE",
+    #     height=54,
+    #     corner_radius=10,
+    #     anchor="w",
+    #     font=("Arial", 12, "bold")
+    # ).pack(fill="both", expand=True, padx=12, pady=4)
 
     ctk.CTkButton(
         panel,
@@ -149,6 +149,6 @@ def crear_panel_reportes(padre, comando_estadisticas=None):
         anchor="w",
         font=("Arial", 12, "bold"),
         command=comando_estadisticas
-    ).pack(fill="both", expand=True, padx=12, pady=4)
+    ).pack(fill="both", expand=True, padx=10, pady=(4,14))
 
     return panel

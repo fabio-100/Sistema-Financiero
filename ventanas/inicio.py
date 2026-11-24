@@ -25,7 +25,7 @@ def crear_inicio(ventana, nombre):
 
     gestor = GestorOperaciones()
 
-    contenido = ctk.CTkFrame(ventana, fg_color="#F4F7FC")
+    contenido = ctk.CTkFrame(ventana, fg_color=("#F4F7FC", "#171720"))
     contenido.pack(fill="both", expand=True)
 
     contenido.grid_columnconfigure(0, weight=0)
@@ -58,10 +58,10 @@ def crear_inicio(ventana, nombre):
     # Tarjeta de saldo
     saldo = ctk.CTkFrame(
         central,
-        fg_color="#E6F6F0",
+        fg_color=("#E6F6F0","#202022"),
         corner_radius=14,
         border_width=1,
-        border_color="#BDE5D5",
+        border_color=("#BDE5D5","#101014"),
         height=135
     )
     saldo.grid(row=1, column=0, sticky="ew", pady=(0, 10))
@@ -87,10 +87,10 @@ def crear_inicio(ventana, nombre):
     # Panel de últimas operaciones
     historial = ctk.CTkFrame(
         central,
-        fg_color="#FFFFFF",
+        fg_color=("#FFFFFF","#101014"),
         corner_radius=12,
         border_width=1,
-        border_color="#DCE5F2"
+        border_color=("#DCE5F2","#101014"),
     )
     historial.grid(row=3, column=0, sticky="nsew")
 
@@ -118,9 +118,6 @@ def crear_inicio(ventana, nombre):
     derecho.grid_columnconfigure(0, weight=1)
     derecho.grid_rowconfigure(0, weight=5)
     derecho.grid_rowconfigure(1, weight=5)
-
-    categorias = crear_panel_categorias(derecho)
-    categorias.grid(row=0, column=0, sticky="nsew", pady=(0, 15))
 
     categorias = crear_panel_categorias(derecho)
     categorias.grid(row=0, column=0, sticky="nsew", pady=(0, 15))
@@ -167,7 +164,7 @@ def crear_inicio(ventana, nombre):
                 color = (
                     "#269F73" if operacion["tipo"] == "Ingreso"
                     else "#D94B55"
-                ) if indice in (1, 3) else "#243B64"
+                ) if indice in (1, 3) else ("#243B64","#67678F")
 
                 crear_etiqueta(
                     fila, dato, tamaño=10, color=color
@@ -207,7 +204,7 @@ def crear_inicio(ventana, nombre):
     ).grid(row=0, column=1, sticky="ew", padx=(8, 0))
 
     # Barra inferior
-    barra = ctk.CTkFrame(ventana, height=28, fg_color="#EAF1FA")
+    barra = ctk.CTkFrame(ventana, height=28, fg_color=("#EAF1FA","#101014"))
     barra.pack(fill="x", side="bottom")
 
     crear_etiqueta(

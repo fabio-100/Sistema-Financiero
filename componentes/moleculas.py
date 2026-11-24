@@ -9,10 +9,10 @@ from componentes.atomos import crear_etiqueta
 def crear_tarjeta_dato(padre, titulo, valor):
     tarjeta = ctk.CTkFrame(
         padre,
-        fg_color="#FFFFFF",
+        fg_color=("#FFFFFF","#101014"),
         corner_radius=14,
         border_width=1,
-        border_color="#DCE5F2"
+        border_color=("#DCE5F2","#101014"),
     )
 
     crear_etiqueta(

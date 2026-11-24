@@ -4,7 +4,7 @@ import customtkinter as ctk
 
 def crear_etiqueta(
     padre,texto,tamaño=14,
-    color="#243B64",
+    color=("#243B64","#67678F"),
     negrita=False
 ):
     etiqueta = ctk.CTkLabel(
