@@ -25,7 +25,7 @@ def crear_inicio(ventana, nombre):
 
     gestor = GestorOperaciones()
 
-    contenido = ctk.CTkFrame(ventana, fg_color=("#F4F7FC", "#171720"))
+    contenido = ctk.CTkFrame(ventana, fg_color=("#F4F7FC", "#171720"), corner_radius=0)
     contenido.pack(fill="both", expand=True)
 
     contenido.grid_columnconfigure(0, weight=0)
@@ -204,7 +204,7 @@ def crear_inicio(ventana, nombre):
     ).grid(row=0, column=1, sticky="ew", padx=(8, 0))
 
     # Barra inferior
-    barra = ctk.CTkFrame(ventana, height=28, fg_color=("#EAF1FA","#101014"))
+    barra = ctk.CTkFrame(ventana, height=28, fg_color=("#EAF1FA","#101014"), corner_radius=0)
     barra.pack(fill="x", side="bottom")
 
     crear_etiqueta(

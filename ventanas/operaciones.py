@@ -145,4 +145,6 @@ def abrir_dialogo(ventana, tipo, gestor, actualizar_pantalla):
         corner_radius=10
     ).pack(fill="x", padx=30)
 
+    dialogo.bind("<Return>",lambda evento: confirmar())
+    
     entrada_monto.focus()
