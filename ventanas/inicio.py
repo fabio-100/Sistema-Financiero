@@ -142,7 +142,7 @@ def crear_inicio(ventana, nombre):
             ).pack(pady=25)
             return
 
-        for operacion in reversed(gestor.operaciones_registradas[-5:]):
+        for operacion in reversed(gestor.operaciones_registradas[-6:]):
             fila = ctk.CTkFrame(
                 contenedor_historial, fg_color="transparent"
             )
